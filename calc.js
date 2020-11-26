@@ -38,11 +38,13 @@ var num2 = 0;
 
 mainContainer.setAttribute('style','display:flex; justify-content:center;')
 
-calculator.setAttribute('style','background:black; width:405px; height:605px; display:flex; justify-content:space-evenly; flex-wrap:wrap; align-items:stretch; border-radius: 30px; overflow:hidden;');
+calculator.setAttribute('style','width:405px; height:620px; display:flex; justify-content:space-evenly; flex-wrap:wrap; align-items:stretch; overflow:hidden; margin-top:50px;');
 
-display.setAttribute('style','width:402px; border: 1px solid white; height:140px; display:flex; align-items:center');
+display.setAttribute('style','width:402px; border: 1px solid #4a4a4a; height:140px; display:flex; align-items:center');
 
-displayContent.setAttribute('style','color:white');
+display.setAttribute('class',"notification");
+
+displayContent.setAttribute('class','title');
 
 divider.setAttribute('style','width: 402px; height:50px; display:flex; justify-content:flex-end;');
 
@@ -52,30 +54,33 @@ numberButtons.setAttribute('style','width: 302px; height:400px;');
 
 allOtherButtons.setAttribute('style','width: 102px; height:420px;');
 
-addition.setAttribute('style','height:100px; width: 100px; background-color:black; color:white;');
+functionButtons = [addition,subtraction, division, multiplication,equals, decimal];
 
-subtraction.setAttribute('style','height:100px; width: 100px; background-color:black; color:white;');
+for(item of functionButtons){
+  item.setAttribute('style','height:100px; width: 100px; font-size:20px;');
 
-multiplication.setAttribute('style','height:100px; width: 100px; background-color:black; color:white;');
+  item.setAttribute('class','button is-primary');
 
-division.setAttribute('style','height:100px; width: 100px; background-color:black; color:white;');
+}
 
-equals.setAttribute('style','height:100px; width: 100px; background-color:black; color:white;');
+clearButton.setAttribute('style','height:50px; width: 100px;');
+clearButton.setAttribute('class','button is-danger')
 
-decimal.setAttribute('style','height:100px; width: 100px; background-color:black; color:white;');
-
-clearButton.setAttribute('style','height:50px; width: 100px; background-color:black; color:white;');
-
-backSpaceButton.setAttribute('style','height:50px; width: 100px; background-color:black; color:white;');
+backSpaceButton.setAttribute('style','height:50px; width: 100px;');
+backSpaceButton.setAttribute('class', 'button is-warning' );
 
 function numbers() {
   for(var i=9; i>-1; i--)
   {
     var number = document.createElement('button');
 
-    number.setAttribute('style','height:100px; width: 100px; background-color:black; color:white;');
+    number.setAttribute('style','height:100px; width: 100px; font-size:20px;');
+
+    number.setAttribute('class', "button");
 
     number.textContent = "" + i +"";
+    
+    
 
     number.addEventListener('click', calcDisplay);
 
